@@ -1,80 +1,64 @@
-# Yearn App Generator
+# Create Yearn App
 
-A project generator based on the ysplitter template architecture.
+A modern web3 application generator based on the ySplitter template architecture. Create fully-featured decentralized applications with a single command.
 
 ## Features
 
-- 🚀 Modern web3 stack (Wagmi, Viem, RainbowKit)
-- 📦 Monorepo structure with Bun workspaces
-- 🎨 Beautiful ASCII art welcome screen
-- ⚡ Fast project scaffolding
-- 🔧 Customizable data sources
-- 🌐 Multi-chain support
+- 🚀 **Modern Web3 Stack**: Built with Wagmi, Viem, and RainbowKit
+- 🧭 **Optional Navigation**: Include or exclude navigation bar based on your needs
+- ⛓️ **Multi-chain Support**: Configure multiple blockchain networks
+- 📦 **Monorepo Structure**: Organized with Bun workspaces
+- ⚡ **Fast Development**: Hot reload with Vite
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/0xeye/app-generator.git
+cd app-generator
+
+# Install dependencies
+bun install
+
+# Run the generator
+bun create-app.js
+```
 
 ## Usage
 
-### Simple Generator (Recommended)
+### Interactive Mode (Recommended)
 
 ```bash
-# Generate a new project
-node scripts/generate.js "YourProjectName"
-
-# Or use the wrapper
-node create-app-simple.js "YourProjectName"
-
-# Generate in a specific directory
-node scripts/generate.js "YourProjectName" "/path/to/directory"
+bun create-app.js
 ```
 
-### Interactive Generator (Legacy - Currently Broken)
+The generator will prompt you for:
+
+1. **Project name** (required) - Your application's name
+2. **Description** - Brief description of your project
+3. **Supported chains** - Comma-separated chain IDs (e.g., 1,10,137,42161)
+4. **Navigation bar** - Whether to include a navigation component (y/n)
+5. **Target directory** - Where to create your project (default: "apps")
+
+### Quick Start
+
+After generation:
 
 ```bash
-node create-app.js
+cd apps/your-project-name
+bun install
+bun run dev
 ```
 
-Note: The interactive generator expects a different template structure and is currently not working. Use the simple generator instead.
-
-## Interactive Prompts
-
-The generator will ask for:
-
-- **Project name** (required): kebab-case project name
-- **Description** (optional): Project description
-- **Favicon** (optional): Path to favicon file
-- **Supported networks** (required): Comma-separated chain IDs
-- **Wagmi only mode** (optional): Whether to use only Wagmi or include data sources
-- **Custom data source** (conditional): Name of your data source (if not using Wagmi only)
-
-## Supported Networks
-
-- 1 (Ethereum Mainnet)
-- 137 (Polygon)
-- 42161 (Arbitrum One)
-- 10 (Optimism)
-- 8453 (Base)
-- And many more...
-
-## Project Structure
-
-The generated project will have:
-
-```
-your-project/
-├── packages/
-│   ├── app/          # React frontend
-│   ├── sdk/          # Business logic
-│   └── contracts/    # Smart contract integrations
-├── package.json
-├── biome.json        # Linting/formatting
-├── tsconfig.json     # TypeScript config
-└── README.md
-```
-
-## Requirements
-
-- Node.js 18+
-- Bun (latest version)
+## Customization Options
 
 ## License
 
-MIT
+This project is licensed under the MIT License with an attribution requirement - see the [LICENSE](LICENSE) file for details.
+
+### Attribution Requirement
+
+When using this app-generator, you must:
+
+- Include the copyright notice in your project
+- Give appropriate credit to the original author
