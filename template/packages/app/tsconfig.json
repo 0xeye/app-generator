@@ -1,0 +1,21 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["src/**/*"],
+  "exclude": ["build", "node_modules"],
+  "compilerOptions": {
+    "types": ["vite/client", "vite-plugin-svgr/client"],
+    "baseUrl": ".",
+    "incremental": true,
+    "composite": true,
+    "rootDir": "src",
+    "tsBuildInfoFile": "./build/.tsbuildinfo",
+    "paths": {
+      "@/*": ["src/*"],
+      "@ysplitter/sdk": ["../sdk/src"],
+      "@ysplitter/sdk/*": ["../sdk/src/*"],
+      "@ysplitter/contracts": ["../contracts/src"],
+      "@ysplitter/contracts/*": ["../contracts/src/*"]
+    }
+  },
+  "references": [{ "path": "../contracts" }, { "path": "../sdk" }]
+}

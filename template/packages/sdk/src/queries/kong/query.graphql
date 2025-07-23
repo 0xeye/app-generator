@@ -1,0 +1,8 @@
+query SplitterLogs($chainId: Int) {
+  newYieldSplitterLogs(chainId: $chainId) {
+    chainId
+    splitter
+    vault
+    want
+  }
+}

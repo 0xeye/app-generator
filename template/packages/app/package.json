@@ -1,0 +1,44 @@
+{
+  "name": "@ysplitter/app",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.6",
+    "@tailwindcss/vite": "^4.1.8",
+    "@tanstack/react-query": "*",
+    "@ysplitter/contracts": "workspace:*",
+    "@ysplitter/sdk": "workspace:*",
+    "notistack": "^3.0.2",
+    "react": "*",
+    "react-dom": "*",
+    "react-modal-hook": "^3.0.2",
+    "react-router-dom": "^7.6.2",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^4.1.8",
+    "viem": "*",
+    "wagmi": "*"
+  },
+  "devDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "@vitejs/plugin-react": "*",
+    "typescript": "*",
+    "vite": "*",
+    "vite-plugin-svgr": "*",
+    "vite-tsconfig-paths": "*"
+  },
+  "scripts": {
+    "start": "vite",
+    "serve": "vite preview",
+    "build": "vite build",
+    "clean:cache": "rm -rf node_modules/.vite",
+    "format": "biome format . --write",
+    "format-and-lint": "bun run format && bun run lint:fix:unsafe",
+    "lint": "biome check .",
+    "lint:all": "bun run lint:fix:unsafe && bun run lint:types",
+    "lint:fix": "bun run lint --apply",
+    "lint:fix:unsafe": "bun run lint --write --unsafe",
+    "lint:types": "tsc -p tsconfig.build.json --noEmit"
+  }
+}
