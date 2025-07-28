@@ -96,19 +96,6 @@ function generateChainImports(chains) {
   return validChains.map(c => c.wagmiName).join(', ');
 }
 
-function generateChainTransports(chains) {
-  const validChains = chains.filter(c => c.wagmiName);
-  if (validChains.length === 0) {
-    return `[mainnet.id]: fallback([
-      http(\`\${import.meta.env.VITE_RPC_URI_FOR_1}\`),
-    ]),`;
-  }
-  
-  return validChains.map(c => `[${c.wagmiName}.id]: fallback([
-      http(\`\${import.meta.env.VITE_RPC_URI_FOR_${c.id}}\`),
-    ]),`).join('\n    ');
-}
-
 function generateSupportedChainsArray(chains) {
   const validChains = chains.filter(c => c.wagmiName);
   if (validChains.length === 0) return 'mainnet';
@@ -153,26 +140,6 @@ async function configureChains(targetPath, chains) {
   );
   
   await fs.writeFile(supportedChainsPath, supportedChainsContent);
-  
-  // Configure wagmi.ts
-  const wagmiPath = path.join(targetPath, 'packages/app/src/config/wagmi.ts');
-  let wagmiContent = await fs.readFile(wagmiPath, 'utf8');
-  
-  const chainTransports = generateChainTransports(chains);
-  
-  wagmiContent = wagmiContent.replace(
-    'import { mainnet } from "viem/chains";',
-    `import { ${chainImports} } from "viem/chains";`
-  );
-  
-  wagmiContent = wagmiContent.replace(
-    `[mainnet.id]: fallback([
-      http(\`\${import.meta.env.VITE_RPC_URI_FOR_1}\`),
-    ]),`,
-    chainTransports
-  );
-  
-  await fs.writeFile(wagmiPath, wagmiContent);
   
   // Configure ChainsProvider.tsx
   const chainsProviderPath = path.join(targetPath, 'packages/app/src/context/ChainsProvider.tsx');

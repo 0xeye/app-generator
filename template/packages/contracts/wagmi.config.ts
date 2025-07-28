@@ -11,7 +11,7 @@ const template = await Promise.all(
     async ({
       name,
       address = undefined,
-      chainId = 747474,
+      chainId = 1,
     }: { name: string; address?: string; chainId?: number }) => {
       const file = await fs.readFile(`./src/abis/${name}.json`, 'utf8')
       return { abi: JSON.parse(file), name, address, chainId }
