@@ -227,7 +227,7 @@ async function promptProjectInfo() {
   
   const supportedChainsInput = await promptWithDefault(
     chalk.cyan('Supported chain IDs (comma-separated)'),
-    '1'
+    '1,137,8453,42161'
   );
   
   // Parse and validate chains
@@ -258,7 +258,7 @@ async function promptProjectInfo() {
   // Target directory
   const targetDir = await promptWithDefault(
     chalk.cyan('Target directory'),
-    'apps'
+    '../'
   );
   
   rl.close();
