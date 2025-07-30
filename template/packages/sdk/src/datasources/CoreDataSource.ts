@@ -3,8 +3,8 @@ import { YDaemonDataSource } from 'src/datasources/YDaemonDataSource'
 import { SdkContext } from '../types'
 
 export class CoreDataSource {
-  private readonly kong: KongDataSource
-  private readonly yDaemon: YDaemonDataSource
+  public readonly kong: KongDataSource
+  public readonly yDaemon: YDaemonDataSource
 
   constructor(context: SdkContext) {
     this.kong = new KongDataSource(context, 'kong')
@@ -18,5 +18,9 @@ export class CoreDataSource {
   dispose(): void {
     this.kong.dispose()
     this.yDaemon.dispose()
+  }
+
+  public demoFunction(): string {
+    return 'Hello, world!'
   }
 }

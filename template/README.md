@@ -2,6 +2,15 @@
 
 A modern Web3 application for splitting Vault tokens, built with React, TypeScript, and Wagmi.
 
+## Usage Overview
+
+- **SDK**: For polling and aggregating data sources
+- **APP**: Main React application  
+- **CONTRACTS**: Contains ABIs and generates wagmi hooks
+- See `useSdk` hook for SDK usage example with caching in app directory
+- See `CoreDataSource` for data source implementation
+- Update `query.graphql` for Kong data and run codegen in SDK directory
+
 ## Project Structure
 
 ```
@@ -49,11 +58,11 @@ The app will be available at `http://localhost:3000`.
 
 ### `@ysplitter/contracts`
 
-Contains Wagmi configuration and generated hooks for interacting with USDC contracts across multiple chains.
+Contains Wagmi configuration and generated hooks for interacting with USDC contracts across multiple chains. Generates wagmi hooks from ABIs for use in the app.
 
 ### `@ysplitter/sdk`
 
-Business logic SDK that provides a unified interface for interacting with the ySplitter application data and services.
+Business logic SDK that provides a unified interface for polling and aggregating data sources. Used by the app for data fetching and caching.
 
 Key features:
 
@@ -74,6 +83,8 @@ await sdk.initialize();
 // Access Kong data source
 const positions = await sdk.kong.getUserPositions(address);
 ```
+
+See `packages/app/src/hooks/useSdk.ts` for example usage with caching and `packages/sdk/src/datasources/CoreDataSource.ts` for data source implementation.
 
 Scripts:
 
