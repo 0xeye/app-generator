@@ -50,6 +50,10 @@ bun install
 bun run dev
 ```
 
+## Project Template Information
+
+For detailed information about the generated project structure, features, and configuration options, please refer to the README file in the `template` directory.
+
 ## Customization Options
 
 ## License

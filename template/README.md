@@ -5,7 +5,7 @@ A modern Web3 application for splitting Vault tokens, built with React, TypeScri
 ## Usage Overview
 
 - **SDK**: For polling and aggregating data sources
-- **APP**: Main React application  
+- **APP**: Main React application
 - **CONTRACTS**: Contains ABIs and generates wagmi hooks
 - See `useSdk` hook for SDK usage example with caching in app directory
 - See `CoreDataSource` for data source implementation
@@ -14,7 +14,7 @@ A modern Web3 application for splitting Vault tokens, built with React, TypeScri
 ## Project Structure
 
 ```
-app-ySplitter/
+app/
 ├── packages/
 │   ├── app/           # Main React application
 │   ├── contracts/     # Wagmi contract hooks and configurations
